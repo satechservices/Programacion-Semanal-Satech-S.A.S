@@ -33,6 +33,8 @@
     --c-hoyos:#38BDF8;
     --c-carton:#B08968;
     --c-hotel:#7EC8E3;
+    --c-colombina:#E67E9C;
+    --c-balcon:#8FBC94;
     --c-ips:#A0D468;
     --holiday:#F2A65A;
     --holiday-dim: rgba(242,166,90,0.14);
@@ -505,7 +507,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">3 al 8 de agosto</div>
+  <div class="date-range">7 al 12 de septiembre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -567,18 +569,16 @@
 
 <script>
 const DAYS = [
-  {key:'LUN03', label:'Lunes 3', short:'LUN', num:'3'},
-  {key:'MAR04', label:'Martes 4', short:'MAR', num:'4'},
-  {key:'MIE05', label:'Miércoles 5', short:'MIÉ', num:'5'},
-  {key:'JUE06', label:'Jueves 6', short:'JUE', num:'6'},
-  {key:'VIE07', label:'Viernes 7', short:'VIE', num:'7'},
-  {key:'SAB08', label:'Sábado 8', short:'SÁB', num:'8'}
+  {key:'LUN07', label:'Lunes 7', short:'LUN', num:'7'},
+  {key:'MAR08', label:'Martes 8', short:'MAR', num:'8'},
+  {key:'MIE09', label:'Miércoles 9', short:'MIÉ', num:'9'},
+  {key:'JUE10', label:'Jueves 10', short:'JUE', num:'10'},
+  {key:'VIE11', label:'Viernes 11', short:'VIE', num:'11'},
+  {key:'SAB12', label:'Sábado 12', short:'SÁB', num:'12'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
-const HOLIDAYS = {
-  'VIE07': 'Día festivo — no hay actividad programada.'
-};
+const HOLIDAYS = {};
 
 // Coordinadores: se mueven entre proyectos según necesidad y no siempre
 // tienen una tarea fija cada día — esto es normal, no es un error.
@@ -595,7 +595,7 @@ const TECHS = [
   {id:'LG', name:'Luis García'},
   {id:'CE', name:'Camilo Escobar'},
   {id:'JV', name:'Jorge Villota'},
-  {id:'WM', name:'Walter Montañez'},
+  {id:'SR', name:'Sebastián Rodríguez'},
   {id:'AM', name:'Anderson Méndez'},
   {id:'SP', name:'Sebastián Posso'},
   {id:'GG', name:'Guillermo García'},
@@ -606,68 +606,50 @@ const TECHS = [
 const ROLE_GROUPS = [
   {title:'Técnicos de mantenimiento', ids:['JF','GG','JC','CE']},
   {title:'Técnicos de proyecto', ids:['SM','SP','FC','DP']},
-  {title:'Jardín Cúcuta', ids:['WM','AM']},
+  {title:'Jardín Cúcuta', ids:['SR','AM']},
   {title:'ISO', ids:['CJ']},
   {title:'Coordinadores', ids:['WD','AB','LG','JV']}
 ];
 
 
 const CLIENT_COLOR = {
-  'Zonamerica':'var(--c-zonamerica)',
   'Jardín Plaza Cali':'var(--c-cali)',
+  'JC1':'var(--c-jc1)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
-  'Plaza de Toros':'var(--c-toros)',
-  'Cartón':'var(--c-carton)',
-  'Hoyostools Centro':'var(--c-hoyos)',
-  'Hotel On Vacation':'var(--c-hotel)',
-  'IPS':'var(--c-ips)',
-  'Satech (interno)':'var(--c-interno)',
-  'Oficina Satech':'var(--c-interno)'
+  'Colombina':'var(--c-colombina)',
+  'Cartón Colombia':'var(--c-carton)',
+  'Plaza de Toros':'var(--c-toros)'
 };
 
 
 const ASSIGNMENTS = [
-  {py:'', client:'Zonamerica', activity:'Actividad programada',
-    slots:{LUN03:{techs:['FC']}},
-    note:'8:00 am – 12:00 m.'},
-  {py:'26130', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad',
+  {py:'26187', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
     slots:{
-      LUN03:{techs:['JC','CE','FC'], note:'Fabio se une de 1:00 pm a 4:00 pm.'},
-      MAR04:{techs:['JC','CE']},
-      MIE05:{techs:['CE','JV'], note:'Jorge acompaña a Camilo porque Julián está en reentrenamiento de alturas todo el día.'},
-      JUE06:{techs:['JC','CE']},
-      SAB08:{techs:['JC','CE']}
+      LUN07:{techs:['CE','GG','JC']},
+      MAR08:{techs:['CE','GG','JC']},
+      MIE09:{techs:['JF','CE','GG','JC']},
+      JUE10:{techs:['JF','CE','GG','JC']},
+      VIE11:{techs:['JF','CE','JC']},
+      SAB12:{techs:['JF','CE','JC']}
     }},
-  {py:'26131', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad',
-    slots:{LUN03:{techs:['AM']}, MAR04:{techs:['AM']}, MIE05:{techs:['AM']}, JUE06:{techs:['AM']}, SAB08:{techs:['AM']}}},
-  {py:'26132', client:'Plaza de Toros', activity:'Segunda visita de mantenimiento',
+  {py:'26191', client:'JC1', activity:'Instalación botón de pánico',
+    slots:{LUN07:{techs:['JC','GG']}}},
+  {py:'26188', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
+    slots:{LUN07:{techs:['AM','SR']}, MAR08:{techs:['AM','SR']}, MIE09:{techs:['AM','SR']}, JUE10:{techs:['AM','SR']}, VIE11:{techs:['AM','SR']}, SAB12:{techs:['AM','SR']}}},
+  {py:'26195', client:'Colombina', activity:'Mantenimiento de sistema de incendio',
     slots:{
-      LUN03:{techs:['GG','JF'], note:'Guillermo hace acompañamiento a la señora Ana Idrobo de 8:00 a 11:00 am.'},
-      MAR04:{techs:['GG','JF']},
-      MIE05:{techs:['GG','JF']},
-      JUE06:{techs:['JF']},
-      SAB08:{techs:['JF']}
+      LUN07:{techs:['FC','DP','WD']},
+      MAR08:{techs:['FC','DP','WD']},
+      MIE09:{techs:['FC','DP']},
+      JUE10:{techs:['FC','DP']},
+      VIE11:{techs:['FC','DP']}
     }},
-  {py:'', client:'Cartón', activity:'Mantenimiento',
-    slots:{JUE06:{techs:['GG']}, SAB08:{techs:['GG']}}},
-  {py:'26145', client:'Hoyostools Centro', activity:'Suministro e instalación sistemas de seguridad electrónica, piso 7',
-    slots:{
-      LUN03:{techs:['SP','DP','WD'], note:'Wilber acompaña mientras Marroquín está en su cita de exámenes médicos (7:00 am).'},
-      MAR04:{techs:['SP','DP','SM']},
-      MIE05:{techs:['SP','DP','SM']},
-      JUE06:{techs:['SP','DP','SM']},
-      SAB08:{techs:['SM','SP','DP']}
-    }},
-  {py:'', client:'Hotel On Vacation', activity:'Inspección',
-    slots:{
-      MAR04:{techs:['FC']},
-      MIE05:{techs:['FC']},
-      JUE06:{techs:['SM','SP','FC']},
-      SAB08:{techs:['SM','SP','FC']}
-    },
-    note:'Jueves y sábado, Marroquín y Posso alternan entre Hoyostools y Hotel On Vacation.'},
-  {py:'', client:'Oficina Satech', activity:'Jornada administrativa',
-    slots:{LUN03:{techs:['CJ']}, MAR04:{techs:['CJ']}, MIE05:{techs:['CJ']}, JUE06:{techs:['CJ']}, SAB08:{techs:['CJ']}}}
+  {py:'', client:'Cartón Colombia', activity:'Inspección mensual',
+    slots:{VIE11:{techs:['GG']}, SAB12:{techs:['GG']}}},
+  {py:'26046', client:'Plaza de Toros', activity:'Mantenimiento preventivo del sistema de seguridad electrónica',
+    slots:{LUN07:{techs:['SP','SM','CJ']}, MAR08:{techs:['SP','SM','CJ']}, MIE09:{techs:['SP','SM','CJ']}, JUE10:{techs:['SP','SM','CJ']}, VIE11:{techs:['SP','SM','CJ']}}},
+  {py:'', client:'Plaza de Toros', activity:'Reparación de techo',
+    slots:{LUN07:{techs:['JF']}, MAR08:{techs:['JF']}}}
 ];
 
 const EXTRA_NOTES = {};
@@ -677,10 +659,7 @@ const EXTRA_NOTES = {};
 const OFF_DAYS = {};
 
 const GENERAL_NOTES = [
-  'Viernes 7 de agosto es día festivo — no hay actividad programada.',
-  'Wilber Duque, Alex Bernal, Luis García y Jorge Villota son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.',
-  'Cartón: falta validar en el listado de ingreso quién está habilitado para entrar (Fabio y Jhon Freddy deben confirmar con Carolina).',
-  'Daniel Palau ingresa como nuevo técnico esta semana, en Hoyostools Centro junto a Posso (y Marroquín desde el martes).'
+  'Wilber Duque, Alex Bernal, Jorge Villota y Luis García son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.'
 ];
 
 // ---------- populate select ----------
