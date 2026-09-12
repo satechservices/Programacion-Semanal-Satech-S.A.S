@@ -507,7 +507,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">7 al 12 de septiembre</div>
+  <div class="date-range">14 al 19 de septiembre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -569,12 +569,12 @@
 
 <script>
 const DAYS = [
-  {key:'LUN07', label:'Lunes 7', short:'LUN', num:'7'},
-  {key:'MAR08', label:'Martes 8', short:'MAR', num:'8'},
-  {key:'MIE09', label:'Miércoles 9', short:'MIÉ', num:'9'},
-  {key:'JUE10', label:'Jueves 10', short:'JUE', num:'10'},
-  {key:'VIE11', label:'Viernes 11', short:'VIE', num:'11'},
-  {key:'SAB12', label:'Sábado 12', short:'SÁB', num:'12'}
+  {key:'LUN14', label:'Lunes 14', short:'LUN', num:'14'},
+  {key:'MAR15', label:'Martes 15', short:'MAR', num:'15'},
+  {key:'MIE16', label:'Miércoles 16', short:'MIÉ', num:'16'},
+  {key:'JUE17', label:'Jueves 17', short:'JUE', num:'17'},
+  {key:'VIE18', label:'Viernes 18', short:'VIE', num:'18'},
+  {key:'SAB19', label:'Sábado 19', short:'SÁB', num:'19'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
@@ -614,42 +614,34 @@ const ROLE_GROUPS = [
 
 const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
-  'JC1':'var(--c-jc1)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Colombina':'var(--c-colombina)',
-  'Cartón Colombia':'var(--c-carton)',
-  'Plaza de Toros':'var(--c-toros)'
+  'Plaza de Toros':'var(--c-toros)',
+  'Oficina Satech':'var(--c-interno)'
 };
 
 
 const ASSIGNMENTS = [
-  {py:'26187', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
-    slots:{
-      LUN07:{techs:['CE','GG','JC']},
-      MAR08:{techs:['CE','GG','JC']},
-      MIE09:{techs:['JF','CE','GG','JC']},
-      JUE10:{techs:['JF','CE','GG','JC']},
-      VIE11:{techs:['JF','CE','JC']},
-      SAB12:{techs:['JF','CE','JC']}
-    }},
-  {py:'26191', client:'JC1', activity:'Instalación botón de pánico',
-    slots:{LUN07:{techs:['JC','GG']}}},
+  {py:'26194', client:'Jardín Plaza Cali', activity:'Suministro e instalación de detectores de humo, baños Banco de Bogotá',
+    slots:{LUN14:{techs:['FC','SM']}, MAR15:{techs:['FC','SM']}, MIE16:{techs:['FC','SM']}}},
+  {py:'26196', client:'Jardín Plaza Cali', activity:'Suministro e instalación de control de acceso',
+    slots:{LUN14:{techs:['JC','JF']}, MAR15:{techs:['JC','JF']}, MIE16:{techs:['JC','JF']}, JUE17:{techs:['JC','JF']}, VIE18:{techs:['JC','JF']}, SAB19:{techs:['JC','JF']}}},
+  {py:'26198', client:'Jardín Plaza Cali', activity:'Suministro e instalación de cámaras en el parking D',
+    slots:{JUE17:{techs:['FC','SM']}, VIE18:{techs:['FC','SM']}, SAB19:{techs:['FC','SM']}}},
   {py:'26188', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
-    slots:{LUN07:{techs:['AM','SR']}, MAR08:{techs:['AM','SR']}, MIE09:{techs:['AM','SR']}, JUE10:{techs:['AM','SR']}, VIE11:{techs:['AM','SR']}, SAB12:{techs:['AM','SR']}}},
-  {py:'26195', client:'Colombina', activity:'Mantenimiento de sistema de incendio',
+    slots:{LUN14:{techs:['AM','SR']}, MAR15:{techs:['AM','SR']}, MIE16:{techs:['AM','SR']}, JUE17:{techs:['AM','SR']}, VIE18:{techs:['AM','SR']}, SAB19:{techs:['AM','SR']}}},
+  {py:'26195', client:'Colombina', activity:'Mantenimiento preventivo de sistema de detección de incendio, planta 1 y 2',
     slots:{
-      LUN07:{techs:['FC','DP','WD']},
-      MAR08:{techs:['FC','DP','WD']},
-      MIE09:{techs:['FC','DP']},
-      JUE10:{techs:['FC','DP']},
-      VIE11:{techs:['FC','DP']}
+      LUN14:{techs:['SP','DP','CJ']},
+      MAR15:{techs:['SP','DP']},
+      MIE16:{techs:['SP','DP']},
+      JUE17:{techs:['SP','DP']},
+      VIE18:{techs:['SP','DP']}
     }},
-  {py:'', client:'Cartón Colombia', activity:'Inspección mensual',
-    slots:{VIE11:{techs:['GG']}, SAB12:{techs:['GG']}}},
   {py:'26046', client:'Plaza de Toros', activity:'Mantenimiento preventivo del sistema de seguridad electrónica',
-    slots:{LUN07:{techs:['SP','SM','CJ']}, MAR08:{techs:['SP','SM','CJ']}, MIE09:{techs:['SP','SM','CJ']}, JUE10:{techs:['SP','SM','CJ']}, VIE11:{techs:['SP','SM','CJ']}}},
-  {py:'', client:'Plaza de Toros', activity:'Reparación de techo',
-    slots:{LUN07:{techs:['JF']}, MAR08:{techs:['JF']}}}
+    slots:{LUN14:{techs:['GG']}, MAR15:{techs:['GG']}, MIE16:{techs:['GG']}, JUE17:{techs:['GG']}, VIE18:{techs:['GG']}}},
+  {py:'', client:'Oficina Satech', activity:'Jornada administrativa SST',
+    slots:{MAR15:{techs:['CJ']}, MIE16:{techs:['CJ']}, JUE17:{techs:['CJ']}, VIE18:{techs:['CJ']}, SAB19:{techs:['CJ']}}}
 ];
 
 const EXTRA_NOTES = {};
