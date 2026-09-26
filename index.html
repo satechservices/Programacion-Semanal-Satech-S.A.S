@@ -507,7 +507,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">21 al 26 de septiembre</div>
+  <div class="date-range">28 de septiembre al 3 de octubre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -569,12 +569,12 @@
 
 <script>
 const DAYS = [
-  {key:'LUN21', label:'Lunes 21', short:'LUN', num:'21'},
-  {key:'MAR22', label:'Martes 22', short:'MAR', num:'22'},
-  {key:'MIE23', label:'Miércoles 23', short:'MIÉ', num:'23'},
-  {key:'JUE24', label:'Jueves 24', short:'JUE', num:'24'},
-  {key:'VIE25', label:'Viernes 25', short:'VIE', num:'25'},
-  {key:'SAB26', label:'Sábado 26', short:'SÁB', num:'26'}
+  {key:'LUN28', label:'Lunes 28', short:'LUN', num:'28'},
+  {key:'MAR29', label:'Martes 29', short:'MAR', num:'29'},
+  {key:'MIE30', label:'Miércoles 30', short:'MIÉ', num:'30'},
+  {key:'JUE01', label:'Jueves 1 oct', short:'JUE', num:'1'},
+  {key:'VIE02', label:'Viernes 2 oct', short:'VIE', num:'2'},
+  {key:'SAB03', label:'Sábado 3 oct', short:'SÁB', num:'3'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
@@ -615,35 +615,31 @@ const ROLE_GROUPS = [
 const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
-  'Oficina Satech':'var(--c-interno)'
+  'Hoyostools Centro':'var(--c-hoyos)',
+  'Colombina':'var(--c-colombina)'
 };
 
 
 const ASSIGNMENTS = [
-  {py:'26197', client:'Jardín Plaza Cali', activity:'Actualización de citofonía, ascensores',
-    slots:{LUN21:{techs:['JC']}, MAR22:{techs:['JC']}}},
+  {py:'26187', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
+    slots:{LUN28:{techs:['CE','JF','GG']}, MAR29:{techs:['CE','JF','GG']}, MIE30:{techs:['CE','JF','GG']}, JUE01:{techs:['CE','JF','GG']}, VIE02:{techs:['CE','JF','GG']}, SAB03:{techs:['CE','JF','GG']}}},
   {py:'26196', client:'Jardín Plaza Cali', activity:'Suministro e instalación de control de acceso',
     slots:{
-      LUN21:{techs:['FC','SP','SM']},
-      MAR22:{techs:['FC','SP','SM']},
-      MIE23:{techs:['FC','SP','SM','JC']},
-      JUE24:{techs:['FC','SP','SM','JC']},
-      VIE25:{techs:['FC','SP','SM','JC']},
-      SAB26:{techs:['FC','SP','SM','JC']}
+      LUN28:{techs:['FC','DP','JC']},
+      MAR29:{techs:['DP','JC']},
+      MIE30:{techs:['JC','SM']},
+      JUE01:{techs:['JC','SM','FC']},
+      VIE02:{techs:['JC','SM','FC']},
+      SAB03:{techs:['JC','SM','FC']}
     }},
-  {py:'26191, 26192, 26202', client:'Jardín Plaza Cali', activity:'Proyectos de mantenimiento',
-    slots:{
-      LUN21:{techs:['CE','DP','GG','JF','CJ']},
-      MAR22:{techs:['CE','DP','GG','JF']},
-      MIE23:{techs:['CE','DP','GG','JF']},
-      JUE24:{techs:['CE','DP','GG','JF']},
-      VIE25:{techs:['CE','DP','GG','JF']},
-      SAB26:{techs:['CE','DP','GG','JF']}
-    }},
+  {py:'26212', client:'Jardín Plaza Cali', activity:'Instalación de cableado para sonido ambiente',
+    slots:{LUN28:{techs:['SP','SM']}, MAR29:{techs:['SP','SM']}}},
   {py:'26188', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, septiembre',
-    slots:{LUN21:{techs:['AM','SR']}, MAR22:{techs:['AM','SR']}, MIE23:{techs:['AM','SR']}, JUE24:{techs:['AM','SR']}, VIE25:{techs:['AM','SR']}, SAB26:{techs:['AM','SR']}}},
-  {py:'', client:'Oficina Satech', activity:'Jornada administrativa SST',
-    slots:{MAR22:{techs:['CJ']}, MIE23:{techs:['CJ']}, JUE24:{techs:['CJ']}, VIE25:{techs:['CJ']}, SAB26:{techs:['CJ']}}}
+    slots:{LUN28:{techs:['AM','SR']}, MAR29:{techs:['AM','SR']}, MIE30:{techs:['AM','SR']}, JUE01:{techs:['AM','SR']}, VIE02:{techs:['AM','SR']}, SAB03:{techs:['AM','SR']}}},
+  {py:'26211', client:'Hoyostools Centro', activity:'Suministro de equipos e instalación de infraestructura CCTV, edificio nuevo',
+    slots:{MIE30:{techs:['SP','DP']}, JUE01:{techs:['SP','DP']}, VIE02:{techs:['SP','DP']}}},
+  {py:'26195', client:'Colombina', activity:'Mantenimiento preventivo de sistema de detección de incendio, planta 1 y 2',
+    slots:{MAR29:{techs:['FC']}, MIE30:{techs:['FC']}}}
 ];
 
 const EXTRA_NOTES = {};
