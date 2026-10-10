@@ -32,7 +32,6 @@
     --c-interno:#6C7A89;
     --c-hoyos:#38BDF8;
     --c-carton:#B08968;
-    --c-anaidrobo:#C77DFF;
     --c-hotel:#7EC8E3;
     --c-colombina:#E67E9C;
     --c-balcon:#8FBC94;
@@ -508,7 +507,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">5 al 10 de octubre</div>
+  <div class="date-range">12 al 17 de octubre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -570,16 +569,18 @@
 
 <script>
 const DAYS = [
-  {key:'LUN05', label:'Lunes 5', short:'LUN', num:'5'},
-  {key:'MAR06', label:'Martes 6', short:'MAR', num:'6'},
-  {key:'MIE07', label:'Miércoles 7', short:'MIÉ', num:'7'},
-  {key:'JUE08', label:'Jueves 8', short:'JUE', num:'8'},
-  {key:'VIE09', label:'Viernes 9', short:'VIE', num:'9'},
-  {key:'SAB10', label:'Sábado 10', short:'SÁB', num:'10'}
+  {key:'LUN12', label:'Lunes 12', short:'LUN', num:'12'},
+  {key:'MAR13', label:'Martes 13', short:'MAR', num:'13'},
+  {key:'MIE14', label:'Miércoles 14', short:'MIÉ', num:'14'},
+  {key:'JUE15', label:'Jueves 15', short:'JUE', num:'15'},
+  {key:'VIE16', label:'Viernes 16', short:'VIE', num:'16'},
+  {key:'SAB17', label:'Sábado 17', short:'SÁB', num:'17'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
-const HOLIDAYS = {};
+const HOLIDAYS = {
+  'LUN12': 'Día festivo — no hay actividad programada.'
+};
 
 // Coordinadores: se mueven entre proyectos según necesidad y no siempre
 // tienen una tarea fija cada día — esto es normal, no es un error.
@@ -593,7 +594,6 @@ const TECHS = [
   {id:'AB', name:'Alex Bernal'},
   {id:'WD', name:'Wilber Duque'},
   {id:'LG', name:'Luis García'},
-  {id:'CE', name:'Camilo Escobar'},
   {id:'JV', name:'Jorge Villota'},
   {id:'SR', name:'Sebastián Rodríguez'},
   {id:'AM', name:'Anderson Méndez'},
@@ -604,7 +604,7 @@ const TECHS = [
 
 // Agrupación para las convenciones (legend) al final de la vista de equipo.
 const ROLE_GROUPS = [
-  {title:'Técnicos de mantenimiento', ids:['JF','GG','JC','CE']},
+  {title:'Técnicos de mantenimiento', ids:['JF','GG','JC']},
   {title:'Técnicos de proyecto', ids:['SM','SP','FC','DP']},
   {title:'Jardín Cúcuta', ids:['SR','AM']},
   {title:'Coordinadores', ids:['WD','AB','LG','JV']}
@@ -614,31 +614,23 @@ const ROLE_GROUPS = [
 const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
-  'Cartón Colombia':'var(--c-carton)',
-  'Ana Idrobo':'var(--c-anaidrobo)'
+  'Hoyostools Centro':'var(--c-hoyos)'
 };
 
 
 const ASSIGNMENTS = [
   {py:'26215', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, octubre',
-    slots:{
-      LUN05:{techs:['JF','GG']},
-      MAR06:{techs:['JF','GG']},
-      MIE07:{techs:['JF','GG']},
-      JUE08:{techs:['JF','GG']}
-    }},
+    slots:{MAR13:{techs:['JC','DP','GG']}, MIE14:{techs:['JC','DP','GG']}, JUE15:{techs:['JC','DP','GG']}, VIE16:{techs:['JC','DP','GG']}, SAB17:{techs:['JC','DP','GG']}}},
   {py:'26196', client:'Jardín Plaza Cali', activity:'Suministro e instalación de control de acceso',
-    slots:{LUN05:{techs:['JC','DP','SP','SM']}, MAR06:{techs:['JC','DP','SP','SM']}, MIE07:{techs:['JC','DP','SP','SM']}, JUE08:{techs:['JC','DP','SP','SM']}, VIE09:{techs:['JC','DP','SP','SM']}, SAB10:{techs:['JC','DP','SP','SM']}}},
+    slots:{MAR13:{techs:['JF','SP']}, MIE14:{techs:['JF','SP']}, JUE15:{techs:['JF','SP']}, VIE16:{techs:['JF','SP']}, SAB17:{techs:['JF','SP']}}},
   {py:'26198', client:'Jardín Plaza Cali', activity:'Suministro e instalación de cámaras en el parking D',
-    slots:{LUN05:{techs:['FC','CE']}, MAR06:{techs:['FC','CE']}, MIE07:{techs:['FC','CE']}, JUE08:{techs:['FC','CE']}, VIE09:{techs:['FC','CE']}, SAB10:{techs:['FC','CE']}}},
-  {py:'26212', client:'Jardín Plaza Cali', activity:'Instalación de cableado para sonido ambiente',
-    slots:{LUN05:{techs:['FC','CE']}}},
+    slots:{MAR13:{techs:['FC','SM']}}},
+  {py:'', client:'Jardín Plaza Cali', activity:'CCTV Jefe Carlos',
+    slots:{JUE15:{techs:['JC','DP']}, VIE16:{techs:['JC','DP']}}},
   {py:'26216', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, octubre',
-    slots:{LUN05:{techs:['AM','SR']}, MAR06:{techs:['AM','SR']}, MIE07:{techs:['AM','SR']}, JUE08:{techs:['AM','SR']}, VIE09:{techs:['AM','SR']}, SAB10:{techs:['AM','SR']}}},
-  {py:'', client:'Cartón Colombia', activity:'Inspección mensual octubre',
-    slots:{VIE09:{techs:['GG','JF']}, SAB10:{techs:['GG','JF']}}},
-  {py:'', client:'Ana Idrobo', activity:'Visita mantenimiento sistema de seguridad electrónica',
-    slots:{MAR06:{techs:['JF','JV']}}}
+    slots:{MAR13:{techs:['AM','SR']}, MIE14:{techs:['AM','SR']}, JUE15:{techs:['AM','SR']}, VIE16:{techs:['AM','SR']}, SAB17:{techs:['AM','SR']}}},
+  {py:'26211', client:'Hoyostools Centro', activity:'Suministro de equipos e instalación de infraestructura CCTV, edificio nuevo',
+    slots:{MIE14:{techs:['FC','SM']}, JUE15:{techs:['FC','SM']}, VIE16:{techs:['FC','SM']}, SAB17:{techs:['FC','SM']}}}
 ];
 
 const EXTRA_NOTES = {};
@@ -648,6 +640,7 @@ const EXTRA_NOTES = {};
 const OFF_DAYS = {};
 
 const GENERAL_NOTES = [
+  'Lunes 12 de octubre es día festivo — no hay programación de actividades.',
   'Wilber Duque, Alex Bernal, Jorge Villota y Luis García son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.'
 ];
 
