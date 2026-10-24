@@ -509,7 +509,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">19 al 24 de octubre</div>
+  <div class="date-range">26 al 31 de octubre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -571,12 +571,12 @@
 
 <script>
 const DAYS = [
-  {key:'LUN19', label:'Lunes 19', short:'LUN', num:'19'},
-  {key:'MAR20', label:'Martes 20', short:'MAR', num:'20'},
-  {key:'MIE21', label:'Miércoles 21', short:'MIÉ', num:'21'},
-  {key:'JUE22', label:'Jueves 22', short:'JUE', num:'22'},
-  {key:'VIE23', label:'Viernes 23', short:'VIE', num:'23'},
-  {key:'SAB24', label:'Sábado 24', short:'SÁB', num:'24'}
+  {key:'LUN26', label:'Lunes 26', short:'LUN', num:'26'},
+  {key:'MAR27', label:'Martes 27', short:'MAR', num:'27'},
+  {key:'MIE28', label:'Miércoles 28', short:'MIÉ', num:'28'},
+  {key:'JUE29', label:'Jueves 29', short:'JUE', num:'29'},
+  {key:'VIE30', label:'Viernes 30', short:'VIE', num:'30'},
+  {key:'SAB31', label:'Sábado 31', short:'SÁB', num:'31'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
@@ -617,33 +617,26 @@ const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Hoyostools Centro':'var(--c-hoyos)',
-  'Ana Idrobo':'var(--c-anaidrobo)',
-  'Hoyostools CLH':'var(--c-c3)',
-  'Cartón Colombia':'var(--c-carton)',
-  'Inmobiliaria del Oeste':'var(--c-inmo)',
-  'Oficina Satech':'var(--c-interno)'
+  'Zonamerica':'var(--c-zonamerica)',
+  'Colombina':'var(--c-colombina)'
 };
 
 
 const ASSIGNMENTS = [
   {py:'26215', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, octubre',
-    slots:{LUN19:{techs:['JC','DP','GG']}, MAR20:{techs:['JC','DP']}, MIE21:{techs:['JC','DP','GG']}, JUE22:{techs:['JC','DP','GG']}, VIE23:{techs:['JC','DP','GG']}, SAB24:{techs:['JC','DP','GG']}}},
-  {py:'26196, 26198', client:'Jardín Plaza Cali', activity:'Actividades de proyectos',
-    slots:{LUN19:{techs:['FC','SP','SM']}, MAR20:{techs:['FC','JF','SM']}, MIE21:{techs:['FC','JF','SP']}, JUE22:{techs:['JF','SP']}, VIE23:{techs:['JF','SP']}, SAB24:{techs:['JF','SP']}}},
+    slots:{LUN26:{techs:['JC','DP','GG','JF']}, MAR27:{techs:['JC','DP','GG','JF']}, MIE28:{techs:['JC','DP','GG','JF']}, JUE29:{techs:['JC','DP','GG','JF']}, VIE30:{techs:['JC','DP','GG','JF']}, SAB31:{techs:['JC','DP','GG','JF']}}},
+  {py:'26196', client:'Jardín Plaza Cali', activity:'Actividades de proyectos',
+    slots:{LUN26:{techs:['SP']}}},
+  {py:'26196', client:'Jardín Plaza Cali', activity:'Instalación de fibra',
+    slots:{LUN26:{techs:['FC','SM']}}},
   {py:'26216', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, octubre',
-    slots:{LUN19:{techs:['AM','SR']}, MAR20:{techs:['AM','SR']}, MIE21:{techs:['AM','SR']}, JUE22:{techs:['AM','SR']}, VIE23:{techs:['AM','SR']}, SAB24:{techs:['AM','SR']}}},
+    slots:{LUN26:{techs:['AM','SR']}, MAR27:{techs:['AM','SR']}, MIE28:{techs:['AM','SR']}, JUE29:{techs:['AM','SR']}, VIE30:{techs:['AM','SR']}, SAB31:{techs:['AM','SR']}}},
   {py:'26211', client:'Hoyostools Centro', activity:'Suministro de equipos e instalación de infraestructura CCTV, edificio nuevo',
-    slots:{JUE22:{techs:['FC','SM']}, VIE23:{techs:['FC','SM']}, SAB24:{techs:['FC','SM']}}},
-  {py:'', client:'Ana Idrobo', activity:'Visita técnica del sistema de seguridad',
-    slots:{LUN19:{techs:['JV','JF']}}},
-  {py:'', client:'Hoyostools CLH', activity:'Visita técnica del sistema CCTV',
-    slots:{LUN19:{techs:['JV']}}},
-  {py:'', client:'Cartón Colombia', activity:'Visita técnica (reubicación y fijación de estación manual)',
-    slots:{MAR20:{techs:['JV','GG','SP']}}},
-  {py:'', client:'Inmobiliaria del Oeste', activity:'Inspección técnica de CCTV',
-    slots:{MIE21:{techs:['SM','JV']}}},
-  {py:'', client:'Oficina Satech', activity:'Actividades diarias de SST',
-    slots:{LUN19:{techs:['KA']}, MAR20:{techs:['KA']}, MIE21:{techs:['KA']}, JUE22:{techs:['KA']}, VIE23:{techs:['KA']}, SAB24:{techs:['KA']}}}
+    slots:{MIE28:{techs:['SP']}, JUE29:{techs:['SP']}, VIE30:{techs:['SP']}, SAB31:{techs:['SP']}}},
+  {py:'', client:'Zonamerica', activity:'Proyecto sistema de seguridad electrónica',
+    slots:{MAR27:{techs:['FC','SM']}, MIE28:{techs:['FC','SM']}, JUE29:{techs:['FC','SM']}, VIE30:{techs:['FC','SM']}, SAB31:{techs:['FC','SM']}}},
+  {py:'', client:'Colombina', activity:'Inspección mensual octubre',
+    slots:{MAR27:{techs:['SP','WD']}}}
 ];
 
 const EXTRA_NOTES = {};
