@@ -509,7 +509,7 @@
 
   <div class="eyebrow">Programación semanal</div>
   <h1>Bienvenido a la programación semanal de Satech Services</h1>
-  <div class="date-range">26 al 31 de octubre</div>
+  <div class="date-range">2 al 7 de noviembre</div>
 
   <div class="picker">
     <div class="picker-label">Selecciona tu nombre</div>
@@ -571,16 +571,18 @@
 
 <script>
 const DAYS = [
-  {key:'LUN26', label:'Lunes 26', short:'LUN', num:'26'},
-  {key:'MAR27', label:'Martes 27', short:'MAR', num:'27'},
-  {key:'MIE28', label:'Miércoles 28', short:'MIÉ', num:'28'},
-  {key:'JUE29', label:'Jueves 29', short:'JUE', num:'29'},
-  {key:'VIE30', label:'Viernes 30', short:'VIE', num:'30'},
-  {key:'SAB31', label:'Sábado 31', short:'SÁB', num:'31'}
+  {key:'LUN02', label:'Lunes 2', short:'LUN', num:'2'},
+  {key:'MAR03', label:'Martes 3', short:'MAR', num:'3'},
+  {key:'MIE04', label:'Miércoles 4', short:'MIÉ', num:'4'},
+  {key:'JUE05', label:'Jueves 5', short:'JUE', num:'5'},
+  {key:'VIE06', label:'Viernes 6', short:'VIE', num:'6'},
+  {key:'SAB07', label:'Sábado 7', short:'SÁB', num:'7'}
 ];
 
 // Días festivos / no laborables de la semana — se muestran así en vez de "sin actividad".
-const HOLIDAYS = {};
+const HOLIDAYS = {
+  'LUN02': 'Día festivo — no hay actividad programada.'
+};
 
 // Coordinadores: se mueven entre proyectos según necesidad y no siempre
 // tienen una tarea fija cada día — esto es normal, no es un error.
@@ -615,28 +617,31 @@ const ROLE_GROUPS = [
 
 const CLIENT_COLOR = {
   'Jardín Plaza Cali':'var(--c-cali)',
+  'Jardín Central 1':'var(--c-jc1)',
   'Jardín Plaza Cúcuta':'var(--c-cucuta)',
   'Hoyostools Centro':'var(--c-hoyos)',
-  'Zonamerica':'var(--c-zonamerica)',
-  'Colombina':'var(--c-colombina)'
+  'Zonamerica (Celerity Fiber)':'var(--c-zonamerica)',
+  'Cartón':'var(--c-carton)'
 };
 
 
 const ASSIGNMENTS = [
-  {py:'26215', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, octubre',
-    slots:{LUN26:{techs:['JC','DP','GG','JF']}, MAR27:{techs:['JC','DP','GG','JF']}, MIE28:{techs:['JC','DP','GG','JF']}, JUE29:{techs:['JC','DP','GG','JF']}, VIE30:{techs:['JC','DP','GG','JF']}, SAB31:{techs:['JC','DP','GG','JF']}}},
-  {py:'26196', client:'Jardín Plaza Cali', activity:'Actividades de proyectos',
-    slots:{LUN26:{techs:['SP']}}},
-  {py:'26196', client:'Jardín Plaza Cali', activity:'Instalación de fibra',
-    slots:{LUN26:{techs:['FC','SM']}}},
-  {py:'26216', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, octubre',
-    slots:{LUN26:{techs:['AM','SR']}, MAR27:{techs:['AM','SR']}, MIE28:{techs:['AM','SR']}, JUE29:{techs:['AM','SR']}, VIE30:{techs:['AM','SR']}, SAB31:{techs:['AM','SR']}}},
-  {py:'26211', client:'Hoyostools Centro', activity:'Suministro de equipos e instalación de infraestructura CCTV, edificio nuevo',
-    slots:{MIE28:{techs:['SP']}, JUE29:{techs:['SP']}, VIE30:{techs:['SP']}, SAB31:{techs:['SP']}}},
-  {py:'', client:'Zonamerica', activity:'Proyecto sistema de seguridad electrónica',
-    slots:{MAR27:{techs:['FC','SM']}, MIE28:{techs:['FC','SM']}, JUE29:{techs:['FC','SM']}, VIE30:{techs:['FC','SM']}, SAB31:{techs:['FC','SM']}}},
-  {py:'', client:'Colombina', activity:'Inspección mensual octubre',
-    slots:{MAR27:{techs:['SP','WD']}}}
+  {py:'26235', client:'Jardín Plaza Cali', activity:'Mantenimiento sistema de seguridad electrónica, noviembre',
+    slots:{MAR03:{techs:['JC','DP']}, MIE04:{techs:['JC','DP']}, JUE05:{techs:['JC','DP']}, VIE06:{techs:['JC','DP']}, SAB07:{techs:['JC','DP']}}},
+  {py:'', client:'Jardín Plaza Cali', activity:'Actividades de proyectos',
+    slots:{MIE04:{techs:['JF']}, JUE05:{techs:['SP']}, VIE06:{techs:['SP']}, SAB07:{techs:['SP']}}},
+  {py:'26238', client:'Jardín Central 1', activity:'Lector facial, oficina 1404',
+    slots:{MAR03:{techs:['SP','WD']}}},
+  {py:'26236', client:'Jardín Plaza Cúcuta', activity:'Mantenimiento sistema de seguridad electrónica, noviembre',
+    slots:{MAR03:{techs:['AM','SR']}, MIE04:{techs:['AM','SR']}, JUE05:{techs:['AM','SR']}, VIE06:{techs:['AM','SR']}, SAB07:{techs:['AM','SR']}}},
+  {py:'', client:'Hoyostools Centro', activity:'Revisión técnica electroimán puerta principal',
+    slots:{MAR03:{techs:['JF']}}},
+  {py:'26233', client:'Zonamerica (Celerity Fiber)', activity:'Desmonte e instalación de sistema CCTV, acceso, red de datos y video',
+    slots:{MAR03:{techs:['FC','SM']}, MIE04:{techs:['FC','SM']}, JUE05:{techs:['FC','SM']}, VIE06:{techs:['FC','SM']}, SAB07:{techs:['FC','SM']}}},
+  {py:'26237', client:'Cartón', activity:'Mantenimiento preventivo sistema de detección de incendios, edificio Almacén',
+    slots:{MAR03:{techs:['GG','KA']}, JUE05:{techs:['GG','JF']}, VIE06:{techs:['GG','JF']}, SAB07:{techs:['GG','JF']}}},
+  {py:'', client:'Cartón', activity:'Instalación y reubicación de estación manual',
+    slots:{MIE04:{techs:['SP','GG','KA']}}}
 ];
 
 const EXTRA_NOTES = {};
@@ -646,6 +651,7 @@ const EXTRA_NOTES = {};
 const OFF_DAYS = {};
 
 const GENERAL_NOTES = [
+  'Lunes 2 de noviembre es día festivo — no hay programación de actividades.',
   'Wilber Duque, Alex Bernal, Jorge Villota y Luis García son coordinadores: se mueven entre proyectos según necesidad, por eso no siempre tienen una tarea fija todos los días.'
 ];
 
